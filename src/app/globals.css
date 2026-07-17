@@ -1,0 +1,141 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PRD §4.1 — warm "paper and espresso" palette. The 4 hex values never change;
+   only which token they are assigned to flips between light and dark mode. */
+
+:root {
+  /* 5 authoritative tokens (light role) */
+  --color-bg: #ffffff;
+  --color-surface: #e1dcc9;
+  --color-accent: #412d15;
+  --color-dark: #1f150c;
+  --color-text: #000000;
+
+  /* shadcn semantic tokens mapped to the PRD tokens so every
+     generated component complies with the palette. */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-accent);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-surface);
+  --secondary-foreground: var(--color-text);
+  --muted: var(--color-surface);
+  --muted-foreground: color-mix(in srgb, var(--color-text) 62%, var(--color-surface));
+  --accent: var(--color-surface);
+  --accent-foreground: var(--color-text);
+  --destructive: var(--color-accent);
+  --destructive-foreground: var(--color-bg);
+  --border: color-mix(in srgb, var(--color-dark) 14%, transparent);
+  --input: color-mix(in srgb, var(--color-dark) 14%, transparent);
+  --ring: var(--color-accent);
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* same 4 hex values — roles flipped */
+  --color-bg: #1f150c;
+  --color-surface: #000000;
+  --color-accent: #e1dcc9;
+  --color-dark: #412d15;
+  --color-text: #e1dcc9;
+
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-accent);
+  --primary-foreground: #000000;
+  --secondary: var(--color-surface);
+  --secondary-foreground: var(--color-text);
+  --muted: var(--color-surface);
+  --muted-foreground: color-mix(in srgb, var(--color-text) 62%, var(--color-surface));
+  --accent: var(--color-surface);
+  --accent-foreground: var(--color-text);
+  --destructive: var(--color-accent);
+  --destructive-foreground: var(--color-bg);
+  --border: color-mix(in srgb, var(--color-text) 16%, transparent);
+  --input: color-mix(in srgb, var(--color-text) 16%, transparent);
+  --ring: var(--color-accent);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), system-ui, sans-serif;
+    color: var(--color-dark);
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Trusted section view transition (enters on first paint) */
+.trusted-section {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.trusted-section.trusted-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+::view-transition-old(trusted-section) {
+  animation: trusted-fade-out 0.4s ease-out both;
+}
+
+::view-transition-new(trusted-section) {
+  animation: trusted-fade-in 0.6s ease-out both;
+}
+
+@keyframes trusted-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes trusted-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-section {
+    opacity: 1;
+    transform: none;
+  }
+
+  ::view-transition-old(trusted-section),
+  ::view-transition-new(trusted-section) {
+    animation: none;
+  }
+}
