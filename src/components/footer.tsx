@@ -13,10 +13,10 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-8 text-sm text-foreground/70 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
         <div className="flex items-center gap-2">
           <span className="flex size-6 items-center justify-center rounded-md bg-accent text-xs font-bold text-bg">
-            P
+            L
           </span>
-          <span className="text-foreground">Pathwise</span>
-          <span className="hidden sm:inline">· Learn anything, on your schedule.</span>
+          <span className="text-foreground">Loom Ai</span>
+          <span className="hidden sm:inline">· Your AI assistant for anything.</span>
         </div>
 
         <nav className="flex items-center gap-4">
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
 
         <p className="text-xs text-foreground/60">
-          © {new Date().getFullYear()} Pathwise
+          © {new Date().getFullYear()} Loom Ai
         </p>
       </div>
     </footer>

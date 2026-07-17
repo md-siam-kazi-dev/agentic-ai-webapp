@@ -10,7 +10,7 @@ type Review = {
   avatarUrl: string;
   rating: number;
   comment: string;
-  roadmapTitle: string;
+  topic: string;
   createdAt: string;
 };
 
@@ -22,8 +22,8 @@ const reviews: Review[] = [
     avatarUrl: "https://i.pravatar.cc/150?img=47",
     rating: 5,
     comment:
-      "Built me a Next.js roadmap that skipped what I already knew. Finally feels personalized.",
-    roadmapTitle: "Learn Next.js from React",
+      "Explained a tricky React hook in plain English, then rewrote it cleaner when I asked. Feels like talking to a teammate.",
+    topic: "Debugging React hooks",
     createdAt: "2026-05-12T09:30:00.000Z",
   },
   {
@@ -33,19 +33,19 @@ const reviews: Review[] = [
     avatarUrl: "https://i.pravatar.cc/150?img=12",
     rating: 5,
     comment:
-      "Weekly hour breakdown kept me from burning out. Timeline actually felt doable.",
-    roadmapTitle: "Learn Python for Data Science",
+      "Helped me outline my whole thesis in one chat. Follow-up answers actually built on what we'd already discussed.",
+    topic: "Planning a research project",
     createdAt: "2026-04-28T14:15:00.000Z",
   },
   {
     id: "rev_003",
     name: "Maria Fernandez",
-    role: "UX Designer transitioning to dev",
+    role: "UX Designer",
     avatarUrl: "https://i.pravatar.cc/150?img=32",
     rating: 4,
     comment:
-      "Regenerated twice for a slower pace, got real variation each time. Solid.",
-    roadmapTitle: "Learn Frontend Development",
+      "Drafted three versions of a client email and tweaked the tone on command. Saved me ages.",
+    topic: "Writing emails",
     createdAt: "2026-06-03T18:42:00.000Z",
   },
   {
@@ -55,8 +55,8 @@ const reviews: Review[] = [
     avatarUrl: "https://i.pravatar.cc/150?img=68",
     rating: 5,
     comment:
-      "Asked about my background first, then adjusted the plan for it. Not generic.",
-    roadmapTitle: "Learn Go for Backend Development",
+      "Pasted an error log and it walked me to the fix step by step. Didn't just dump code — it explained why.",
+    topic: "Tracing a server bug",
     createdAt: "2026-05-20T11:05:00.000Z",
   },
   {
@@ -66,8 +66,8 @@ const reviews: Review[] = [
     avatarUrl: "https://i.pravatar.cc/150?img=25",
     rating: 4,
     comment:
-      "Felt like a mentor, not a form. Talked me down to a more sustainable pace.",
-    roadmapTitle: "Learn Data Structures & Algorithms",
+      "Broke a hard concept down to my level, then leveled up when I was ready. Real back-and-forth.",
+    topic: "Learning system design",
     createdAt: "2026-06-15T08:20:00.000Z",
   },
   {
@@ -77,8 +77,8 @@ const reviews: Review[] = [
     avatarUrl: "https://i.pravatar.cc/150?img=53",
     rating: 5,
     comment:
-      "Actual plan instead of an endless YouTube playlist. Stuck with it every week.",
-    roadmapTitle: "Learn TypeScript Deeply",
+      "Brainstormed side-project ideas with me, then turned the best one into a starter plan. Genuinely useful.",
+    topic: "Ideating a side project",
     createdAt: "2026-03-30T16:00:00.000Z",
   },
 ];
@@ -99,7 +99,7 @@ function ReviewCard({ review }: { review: Review }) {
         &ldquo;{review.comment}&rdquo;
       </p>
       <p className="mt-auto text-xs font-medium text-accent">
-        {review.roadmapTitle}
+        {review.topic}
       </p>
     </Card>
   );
@@ -120,7 +120,7 @@ export function ReviewSection() {
             What our users are saying
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg text-foreground/80">
-            Real roadmaps, real progress. Here&apos;s what people built with Pathwise.
+            Real conversations, real help. Here&apos;s what people are saying about Loom Ai.
           </p>
         </FadeIn>
       </div>

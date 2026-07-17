@@ -10,12 +10,8 @@ import {
   siNvidia,
   siStripe,
 } from "simple-icons";
-import { useEffect, useRef } from "react";
 import { FadeIn } from "@/components/ui/fade-in";
-import {
-  ScrollVelocityContainer,
-  ScrollVelocityRow,
-} from "@/components/ui/scroll-based-velocity";
+import { Marquee } from "@/components/ui/marquee";
 
 type Company = {
   name: string;
@@ -96,27 +92,8 @@ function CompanyLogo({ name, path, color }: Company) {
 }
 
 export function TrustedBySection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    if (typeof document === "undefined" || !("startViewTransition" in document)) {
-      el.classList.add("trusted-visible");
-      return;
-    }
-    el.classList.add("trusted-visible");
-    document.startViewTransition?.(() => {
-      el.classList.add("trusted-visible");
-    });
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      style={{ viewTransitionName: "trusted-section" }}
-      className="trusted-section w-full bg-bg py-24 my-8"
-    >
+    <section className="w-full bg-bg py-24 my-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -126,13 +103,11 @@ export function TrustedBySection() {
       </div>
 
       <div className="relative mt-10 flex w-full flex-col items-center overflow-hidden">
-        <ScrollVelocityContainer className="w-full">
-          <ScrollVelocityRow baseVelocity={2} direction={1} className="py-3">
-            {companies.map((company) => (
-              <CompanyLogo key={company.name} {...company} />
-            ))}
-          </ScrollVelocityRow>
-        </ScrollVelocityContainer>
+        <Marquee className="[--duration:40s] py-3">
+          {companies.map((company) => (
+            <CompanyLogo key={company.name} {...company} />
+          ))}
+        </Marquee>
 
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-bg" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-bg" />

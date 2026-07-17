@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import {
     DropdownMenu,
     DropdownMenuContent,
+    DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
@@ -16,9 +17,7 @@ import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/com
 import { authClient, useSession } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import {
-    Bookmark,
     Compass,
-    Folder,
     Info,
     LogOut,
     Menu as MenuIcon,
@@ -38,7 +37,6 @@ const loggedOutRoutes = [
 const loggedInRoutes = [
   { href: "/assistant", label: "Chat", icon: Sparkles },
   { href: "/pricing", label: "Pricing", icon: Sparkles },
-  { href: "/items/manage", label: "History", icon: Folder },
 ];
 
 function getInitials(name?: string | null, email?: string | null) {
@@ -80,10 +78,10 @@ export function Navbar() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
             <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-bg">
-              P
+              L
             </span>
             <span className="text-lg font-semibold tracking-tight text-foreground">
-              Pathwise
+              Loom Ai
             </span>
           </Link>
 
@@ -137,24 +135,18 @@ export function Navbar() {
                 </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium text-foreground">{user.name}</span>
-                    <span className="truncate text-xs text-muted-foreground">{user.email}</span>
-                  </div>
-                </DropdownMenuLabel>
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-foreground">{user.name}</span>
+                      <span className="truncate text-xs text-muted-foreground">{user.email}</span>
+                    </div>
+                  </DropdownMenuLabel>
+                </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem render={<Link href="/profile" />}>
                   <User className="mr-2 h-4 w-4" />
                   Profile
-                </DropdownMenuItem>
-                <DropdownMenuItem render={<Link href="/items/manage" />}>
-                  <Folder className="mr-2 h-4 w-4" />
-                  Manage Roadmaps
-                </DropdownMenuItem>
-                <DropdownMenuItem render={<Link href="/profile?tab=saved" />}>
-                  <Bookmark className="mr-2 h-4 w-4" />
-                  Saved
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem variant="destructive" onClick={handleSignOut}>
@@ -165,10 +157,10 @@ export function Navbar() {
             </DropdownMenu>
           ) : (
             <div className="hidden items-center gap-2 md:flex">
-              <Button variant="ghost" className="text-foreground hover:bg-muted" render={<Link href="/login" />}>
+              <Button variant="ghost" nativeButton={false} className="text-foreground hover:bg-muted" render={<Link href="/login" />}>
                 Login
               </Button>
-              <Button render={<Link href="/register" />}>Sign Up</Button>
+              <Button nativeButton={false} render={<Link href="/register" />}>Sign Up</Button>
             </div>
           )}
 

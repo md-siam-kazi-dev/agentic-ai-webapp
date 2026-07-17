@@ -19,9 +19,9 @@ const heading = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Pathwise — Learn anything, on your schedule",
+  title: "Loom Ai — your AI assistant for anything",
   description:
-    "Pathwise generates a personalized, time-boxed learning roadmap after a short AI conversation about your skills, timeline, and availability.",
+    "Loom Ai is a simple, fast AI chat assistant. Ask questions, brainstorm ideas, and get clear answers.",
 };
 
 export default function RootLayout({

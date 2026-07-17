@@ -8,34 +8,34 @@ import { FadeIn } from "@/components/ui/fade-in"
 
 const faqs = [
   {
-    question: "Does Pathwise account for skills I already know?",
+    question: "What can Loom Ai help me with?",
     answer:
-      "Yes. Before generating your roadmap, the AI asks about the technologies and skills you already have. It then skips topics you've mastered and focuses your time on what's new, so you're never relearning the basics.",
+      "Almost anything you'd ask an assistant — explain a tricky concept, brainstorm ideas, draft an email, debug code, plan a project, or just chat through a problem. It follows the whole conversation as you go.",
   },
   {
-    question: "Can I edit my roadmap after it's generated?",
+    question: "Does Loom Ai remember our conversation?",
     answer:
-      "Absolutely. Every generated roadmap can be tweaked — adjust the duration, pace, or weekly topics before you save it. Your saved roadmaps live in 'My Roadmaps' and stay fully editable.",
+      "Yes. Every message stays in the chat thread, so Loom Ai can reference earlier replies and build on them instead of starting from scratch each time.",
   },
   {
-    question: "How is a time-boxed roadmap different from a generic tutorial list?",
+    question: "How is Loom Ai different from a search engine?",
     answer:
-      "Generic lists tell you what to learn; Pathwise tells you when. It spreads topics across the exact weeks and daily hours you have available, giving you a realistic, week-by-week plan instead of an endless checklist.",
+      "Instead of a list of links, Loom Ai gives you a direct, conversational answer you can follow up on. Ask for a simpler explanation or a rewrite and it adapts in real time.",
   },
   {
-    question: "What if I miss a few days or fall behind?",
+    question: "Can Loom Ai help with coding and technical work?",
     answer:
-      "Roadmaps are flexible. You can regenerate a variation with a new pace, extend the timeline, or ask the AI assistant to 'make it more realistic' based on your current progress.",
+      "Definitely. Paste in an error, share a snippet, or describe what you're building and Loom Ai can explain, refactor, or suggest approaches. It's a thinking partner, not just an answer machine.",
   },
   {
-    question: "Do I need to create an account to use Pathwise?",
+    question: "Do I need to create an account to use Loom Ai?",
     answer:
-      "You can browse the public roadmap library without an account. To generate a personalized roadmap, save plans, and track progress, you'll need a free account — sign up takes seconds.",
+      "You can open the chat and start talking right away. A free account lets you keep your history and pick up where you left off as new features roll out.",
   },
   {
-    question: "Is there a cost to use Pathwise?",
+    question: "Is there a cost to use Loom Ai?",
     answer:
-      "Pathwise has a free tier that covers personalized roadmaps and progress tracking. Pro and Team plans unlock advanced features like shared team roadmaps and finer control over output detail.",
+      "Loom Ai has a free tier that covers everyday chat. Pro and Team plans unlock higher usage limits and advanced features as the product grows.",
   },
 ]
 
@@ -51,8 +51,7 @@ export function FaqSection() {
             Frequently asked questions
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg text-foreground/80">
-            Everything you need to know about building your personalized learning
-            roadmap with Pathwise.
+            Everything you need to know about chatting with Loom Ai.
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
