@@ -6,7 +6,7 @@ import { ArrowUp, Copy, Sparkles, ThumbsUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import RenderMarkdown from "./ui/renderOutput";
+import { StreamingMarkdown } from "./ui/renderOutput";
 
 type Role = "assistant" | "user";
 
@@ -106,7 +106,7 @@ export function AssistantChat() {
         <>
           <div
             ref={scrollRef}
-            className="flex-1 space-y-4 overflow-y-auto rounded-xl bg-surface/30 p-4"
+            className="no-scrollbar flex-1 space-y-4 overflow-y-auto rounded-xl bg-surface/30 p-4"
           >
             {messages.map((m) => (
               <motion.div
@@ -117,13 +117,13 @@ export function AssistantChat() {
                 className={cn("flex flex-col gap-1", m.role === "user" ? "items-end" : "items-start")}
               >
                 {m.role === "user" ? (
-                  <div className="max-w-[85%] whitespace-pre-wrap rounded-2xl bg-primary px-4 py-2 text-sm text-primary-foreground shadow-sm">
+                  <div className="max-w-[85%] whitespace-pre-wrap px-1 text-[15px] leading-relaxed text-foreground">
                     {m.content}
                   </div>
                 ) : (
                   <div className="w-full max-w-[85%]">
                     <div className="text-[15px] leading-relaxed text-foreground">
-                      <RenderMarkdown aiOutput={m.content} />
+                      <StreamingMarkdown aiOutput={m.content} />
                     </div>
                     <div className="mt-2 flex items-center gap-1">
                       <button

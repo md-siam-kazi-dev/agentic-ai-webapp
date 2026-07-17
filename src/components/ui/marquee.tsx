@@ -22,7 +22,7 @@ export function Marquee({
   return (
     <div
       className={cn(
-        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+        "group flex max-w-full overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
         vertical
           ? "flex-col"
           : "flex-row",

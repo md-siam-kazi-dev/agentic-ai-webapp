@@ -7,7 +7,7 @@ import { TrustedBySection } from "@/components/trusted-by-section";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex  flex-col items-center gap-8 px-4 py-20 text-center sm:px-6 lg:px-8">
+    <main className="mx-auto flex w-full max-w-full flex-col items-center gap-8 overflow-x-hidden px-4 py-20 text-center sm:px-6 lg:px-8">
       <FadeIn>
         <span className="inline-flex items-center rounded-full bg-accent/15 px-4 py-1.5 text-sm font-medium text-accent">
           AI chat, reimagined
