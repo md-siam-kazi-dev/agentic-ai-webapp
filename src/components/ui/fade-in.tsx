@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { type ReactNode } from "react";
+/* eslint-disable react-hooks/set-state-in-effect */
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type FadeInProps = {
   children: ReactNode;
@@ -11,12 +12,25 @@ type FadeInProps = {
 };
 
 export function FadeIn({ children, className, delay = 0, y = 16 }: FadeInProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setRevealed(true);
+      return;
+    }
+    const id = window.setTimeout(() => setRevealed(true), 800);
+    return () => window.clearTimeout(id);
+  }, [inView]);
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      animate={revealed ? "visible" : "hidden"}
       variants={{
         hidden: { opacity: 0, y },
         visible: { opacity: 1, y: 0 },

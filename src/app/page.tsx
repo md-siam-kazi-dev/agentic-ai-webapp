@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { FaqSection } from "@/components/faq-section";
 import { ReviewSection } from "@/components/review-section";
 import { TrustedBySection } from "@/components/trusted-by-section";
+import { PricingSection } from "@/components/pricing-section";
 
 export default function HomePage() {
   return (
@@ -42,6 +43,8 @@ export default function HomePage() {
       <FadeIn>
         <ReviewSection />
       </FadeIn>
+
+      <PricingSection />
 
       <FaqSection />
     </main>

@@ -29,14 +29,14 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const loggedOutRoutes = [
-  { href: "/pricing", label: "Pricing", icon: Sparkles },
+  { href: "/#pricing", label: "Pricing", icon: Sparkles },
   { href: "/about", label: "About", icon: Info },
   { href: "/explore", label: "Explore", icon: Compass },
 ];
 
 const loggedInRoutes = [
   { href: "/assistant", label: "Chat", icon: Sparkles },
-  { href: "/pricing", label: "Pricing", icon: Sparkles },
+  { href: "/#pricing", label: "Pricing", icon: Sparkles },
 ];
 
 function getInitials(name?: string | null, email?: string | null) {
@@ -97,7 +97,7 @@ export function Navbar() {
                   href={route.href}
                   className={cn(
                     "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                    pathname === route.href
+                    pathname === route.href.split("#")[0] && !route.href.includes("#")
                       ? "text-accent"
                       : "text-muted-foreground hover:text-foreground"
                   )}
@@ -193,7 +193,7 @@ export function Navbar() {
                         <span
                           className={cn(
                             "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                            pathname === route.href
+                            pathname === route.href.split("#")[0] && !route.href.includes("#")
                               ? "bg-muted text-accent"
                               : "text-foreground/80 hover:bg-muted hover:text-foreground"
                           )}

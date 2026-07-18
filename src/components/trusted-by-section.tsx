@@ -93,7 +93,7 @@ function CompanyLogo({ name, path, color }: Company) {
 
 export function TrustedBySection() {
   return (
-    <section className="w-full max-w-full overflow-hidden bg-bg py-24 my-8">
+    <section className="w-full max-w-full min-w-0 overflow-hidden bg-bg py-24 my-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

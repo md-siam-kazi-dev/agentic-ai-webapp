@@ -110,7 +110,7 @@ export function ReviewSection() {
   const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
 
   return (
-    <section className="w-full max-w-full overflow-hidden bg-surface/40 py-20">
+    <section className="w-full max-w-full min-w-0 overflow-hidden bg-surface/40 py-20">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <FadeIn>
           <span className="inline-flex items-center rounded-full bg-accent/15 px-4 py-1.5 text-sm font-medium text-accent">
